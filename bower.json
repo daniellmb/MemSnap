@@ -1,5 +1,5 @@
 {
-  "name": "memSnap",
+  "name": "memsnap",
   "version": "0.1.0",
   "main": "memSnap.js",
   "ignore": [
