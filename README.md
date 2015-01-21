@@ -14,7 +14,7 @@ MemSnap is a 0.2KB analytics micro-library written in both CoffeeScript and Java
 
 ## Examples
 
-The examples below would log memory use snapshots at the following relative time intervals:
+By default the examples below would log memory use snapshots at the following relative time intervals:
 
   - immediately (as soon as memSnap is called)
   - at 5 minutes
@@ -81,7 +81,7 @@ memSnap.start @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usa
 ```
 
 ## Install Choices
-- `bower install memSnap`
+- `bower install memsnap`
 - [download the zip](https://github.com/daniellmb/memSnap/archive/master.zip)
 
 ## Tasks
