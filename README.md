@@ -14,33 +14,6 @@ MemSnap is a 0.2KB analytics micro-library written in both CoffeeScript and Java
 
 ## Examples
 
-By default the examples below would log memory use snapshots at the following relative time intervals:
-
-  - immediately (as soon as memSnap is called)
-  - at 5 minutes
-  - at 10 minutes
-  - at 15 minutes
-  - at 30 minutes
-  - at 1 hour
-  - at 3 hours
-  - at 6 hours
-  - at 12 hours
-  - at 24 hours
-  - at 48 hours
-
-These snapshots would be sent in to the url using the parameter format you provide, such as:
-
-http://example.com/log/?when=`{lbl}`&limit=`{lmt}`&total=`{tot}`&usage=`{use}`
-
-The simple placeholders in the url template above will be replaced with the following values:
-
-  - `{lbl}` is a friendly label for when the snapshot was taken (relative to when memSnap was called).
-  - `{lmt}` is the current value of `window.performance.memory.jsHeapSizeLimit` in kilobytes.
-  - `{tot}` is the current value of `window.performance.memory.totalJSHeapSize` in kilobytes.
-  - `{use}` is the current value of `window.performance.memory.usedJSHeapSize` in kilobytes.
-
-NOTE: that the `memSnap` method only needs to be *called once* to schedule sending the memory statistics.
-
 ### JavaScript
 
 ```JavaScript
@@ -79,6 +52,33 @@ memSnap.start @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usa
   '15m': 9e5
   '30m': 18e5
 ```
+
+By default the examples above would log memory use snapshots at the following relative time intervals:
+
+  - immediately (as soon as memSnap is called)
+  - at 5 minutes
+  - at 10 minutes
+  - at 15 minutes
+  - at 30 minutes
+  - at 1 hour
+  - at 3 hours
+  - at 6 hours
+  - at 12 hours
+  - at 24 hours
+  - at 48 hours
+
+These snapshots would be sent in to the url using the parameter format you provide, such as:
+
+`http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}`
+
+The simple placeholders in the url template above will be replaced with the following values:
+
+  - `{lbl}` is a friendly label for when the snapshot was taken (relative to when memSnap was called).
+  - `{lmt}` is the current value of `window.performance.memory.jsHeapSizeLimit` in kilobytes.
+  - `{tot}` is the current value of `window.performance.memory.totalJSHeapSize` in kilobytes.
+  - `{use}` is the current value of `window.performance.memory.usedJSHeapSize` in kilobytes.
+
+NOTE: that the `memSnap` method only needs to be *called once* to schedule sending the memory statistics.
 
 ## Install Choices
 - `bower install memsnap`
