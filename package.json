@@ -1,0 +1,68 @@
+{
+  "name": "memSnap",
+  "version": "0.1.0",
+  "description": "MemSnap is a 0.2KB analytics micro-library written in both CoffeeScript and JavaScript that logs browser memory statistic snapshots over time.",
+  "author": {
+    "name": "Daniel Lamb",
+    "email": "dlamb.open.source@gmail.com",
+    "url": "https://github.com/daniellmb"
+  },
+  "homepage": "https://github.com/daniellmb/MemSnap",
+  "bugs": {
+    "url": "https://github.com/daniellmb/MemSnap/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://daniellmb.mit-license.org"
+    }
+  ],
+  "maintainers": [],
+  "contributors": [{
+    "name": "Daniel Lamb",
+    "email": "dlamb.open.source@gmail.com",
+    "url": "https://github.com/daniellmb"
+  }],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daniellmb/MemSnap.git"
+  },
+  "main": "memSnap.js",
+  "scripts": {
+    "test": "gulp"
+  },
+  "keywords": [
+    "analytics",
+    "log",
+    "track",
+    "browser",
+    "memory",
+    "statistic",
+    "snapshot",
+    "javascript",
+    "coffeescript",
+    "micro",
+    "framework",
+    "library"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-jshint": "*",
+    "gulp-complexity": "*",
+    "gulp-rename": "*",
+    "gulp-replace": "*",
+    "gulp-uglify": "*",
+    "gulp-coffee": "*",
+    "gulp-karma": "*",
+    "karma-jasmine": "*",
+    "coffee-script": "*",
+    "karma-coffee-preprocessor": "*",
+    "karma-coverage": "*",
+    "karma-phantomjs-launcher": "*"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  }
+}
