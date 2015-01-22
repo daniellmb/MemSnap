@@ -88,15 +88,17 @@ describe 'memSnap.coffee', ->
           totalJSHeapSize: 2
           usedJSHeapSize: 3
         win.document = createElement: jasmine.createSpy('createElement').and.returnValue(img)
+        win.encodeURIComponent = jasmine.createSpy('encodeURIComponent').and.returnValue('encodeURIComponent')
 
       it 'should create an image with the data', ->
         # arrange
         memSnap win, url,
-          bar: 1337
+          't&c': 1337
         sendAt = win.setTimeout.calls.mostRecent().args[0]
-        expected = 'http://example.com/log/?when=bar&limit=1&total=2&usage=3'
+        expected = 'http://example.com/log/?when=encodeURIComponent&limit=1&total=2&usage=3'
         # act
         sendAt()
         # assert
         expect(win.document.createElement).toHaveBeenCalledWith 'img'
+        expect(win.encodeURIComponent).toHaveBeenCalledWith 't&c'
         expect(img.src).toBe expected

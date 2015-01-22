@@ -44,7 +44,7 @@ memSnap = (global, url, intervals) ->
     sendAt = (at, delay) ->
       global.setTimeout (->
         global.document.createElement('img').src =
-          url.replace(lblRegx, label)
+          url.replace(lblRegx, global.encodeURIComponent label)
              .replace(lmtRegx, memory.jsHeapSizeLimit)
              .replace(totRegx, memory.totalJSHeapSize)
              .replace(useRegx, memory.usedJSHeapSize)

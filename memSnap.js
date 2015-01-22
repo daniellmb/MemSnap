@@ -45,7 +45,7 @@ function memSnap (global, url, intervals) {
     sendAt = function (label, delay) {
       global.setTimeout(function () {
         global.document.createElement('img').src =
-          url.replace(lblRegx, label)
+          url.replace(lblRegx, global.encodeURIComponent(label))
              .replace(lmtRegx, memory.jsHeapSizeLimit)
              .replace(totRegx, memory.totalJSHeapSize)
              .replace(useRegx, memory.usedJSHeapSize);
