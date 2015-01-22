@@ -94,7 +94,8 @@ describe 'memSnap.coffee', ->
         # arrange
         memSnap win, url,
           't&c': 1337
-        sendAt = win.setTimeout.calls.mostRecent().args[0]
+          'foo': 321
+        sendAt = win.setTimeout.calls.argsFor(0)[0]
         expected = 'http://example.com/log/?when=encodeURIComponent&limit=1&total=2&usage=3'
         # act
         sendAt()

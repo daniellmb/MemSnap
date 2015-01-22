@@ -38,10 +38,10 @@ memSnap = (global, url, intervals) ->
 
     ###*
     Schedules sending a memory snapshot in the future.
-    @param {string} at - human readable label of when the snapshot was taken
+    @param {string} label - human readable label of when the snapshot was taken
     @param {number} delay - how long to wait in milliseconds from the time memSnap is called.
     ###
-    sendAt = (at, delay) ->
+    sendAt = (label, delay) ->
       global.setTimeout (->
         global.document.createElement('img').src =
           url.replace(lblRegx, global.encodeURIComponent label)
@@ -51,5 +51,5 @@ memSnap = (global, url, intervals) ->
       ), delay
 
     # schedule sending memory stats
-    for own label, delay of intervals
-      sendAt label, delay
+    for own key, value of intervals
+      sendAt key, value

@@ -33,8 +33,6 @@ describe('memSnap.js', function () {
     beforeEach(function () {
       // set logging url
       url = 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}';
-      // reset already called flag
-      memSnap.called = undefined;
       // mock the global context
       win = {
         performance: { memory: {} },
@@ -111,9 +109,10 @@ describe('memSnap.js', function () {
       it('should create an image with the data', function () {
         // arrange
         memSnap(win, url, {
-          't&c': 1337
+          't&c': 1337,
+          'foo': 321
         });
-        var sendAt = win.setTimeout.calls.mostRecent().args[0],
+        var sendAt = win.setTimeout.calls.argsFor(0)[0],
             expected = 'http://example.com/log/?when=encodeURIComponent&limit=1&total=2&usage=3';
         // act
         sendAt();

@@ -1,6 +1,6 @@
 {
   "name": "memsnap",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "MemSnap is a 0.2KB analytics micro-library written in both CoffeeScript and JavaScript that logs browser memory statistic snapshots over time.",
   "author": {
     "name": "Daniel Lamb",

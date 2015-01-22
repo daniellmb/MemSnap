@@ -19,7 +19,7 @@ function memSnap (global, url, intervals) {
         lmtRegx = /\{lmt\}/,
         totRegx = /\{tot\}/,
         useRegx = /\{use\}/,
-        sendAt, label;
+        sendAt, key;
 
     // use default intervals if not set
     intervals = intervals || {
@@ -53,9 +53,9 @@ function memSnap (global, url, intervals) {
     };
 
     // schedule sending memory stats
-    for (label in intervals) {
-      if (intervals.hasOwnProperty(label)) {
-        sendAt(label, intervals[label]);
+    for (key in intervals) {
+      if (intervals.hasOwnProperty(key)) {
+        sendAt(key, intervals[key]);
       }
     }
   }
