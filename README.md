@@ -38,12 +38,12 @@ memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage=
 
 ```CoffeeScript
 # pass in the window object and set the URL for where to send memory statistics.
-memSnap.start @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}'
+memSnap @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}'
 
 # - OR -
 
 # you can optionally configure custom snapshot labels and intervals
-memSnap.start @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}',
+memSnap @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}',
   '0s': 0
   '1m': 6e4
   '3m': 18e4
