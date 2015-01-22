@@ -136,14 +136,14 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [issues-url]: https://github.com/daniellmb/MemSnap/issues
 [issues-image]: http://img.shields.io/github/issues/daniellmb/MemSnap.png
 
-[bower-url]: http://bower.io/search/?q=MemSnap
-[bower-image]: https://badge.fury.io/bo/MemSnap.png
+[bower-url]: http://bower.io/search/?q=memsnap
+[bower-image]: https://badge.fury.io/bo/memsnap.png
 
-[downloads-url]: https://www.npmjs.org/package/MemSnap
-[downloads-image]: http://img.shields.io/npm/dm/MemSnap.png
+[downloads-url]: https://www.npmjs.org/package/memsnap
+[downloads-image]: http://img.shields.io/npm/dm/memsnap.png
 
 [npm-url]: https://www.npmjs.org/package/memsnap
-[npm-image]: https://badge.fury.io/js/MemSnap.png
+[npm-image]: https://badge.fury.io/js/memsnap.png
 
 [irc-url]: http://webchat.freenode.net/?channels=MemSnap
 [irc-image]: http://img.shields.io/badge/irc-%23MemSnap-brightgreen.png
