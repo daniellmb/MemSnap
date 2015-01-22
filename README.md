@@ -142,7 +142,7 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [downloads-url]: https://www.npmjs.org/package/MemSnap
 [downloads-image]: http://img.shields.io/npm/dm/MemSnap.png
 
-[npm-url]: https://www.npmjs.org/package/MemSnap
+[npm-url]: https://www.npmjs.org/package/memsnap
 [npm-image]: https://badge.fury.io/js/MemSnap.png
 
 [irc-url]: http://webchat.freenode.net/?channels=MemSnap
