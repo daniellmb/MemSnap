@@ -14,11 +14,18 @@ MemSnap is a 0.2KB analytics micro-library written in both CoffeeScript and Java
 
 ## Examples
 
+### Sending Data to Google Analytics
+
+```JavaScript
+// An example of using ga-beacon to send memory snapshot data to Google Analytics as custom events
+memSnap(this, 'https://ga-beacon.appspot.com/UA-XXXXXXXX-X/event?t=event&ec=Mem&ea=Snap&el={lbl}&ev={use}');
+```
+
 ### JavaScript
 
 ```JavaScript
 // pass in the window object and set the URL for where to send memory statistics.
-memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}');
+memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={use}&usage={use}');
 
 // - OR -
 
