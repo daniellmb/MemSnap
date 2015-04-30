@@ -2,10 +2,7 @@
   'use strict';
   if (typeof define === 'function' && define.amd) {
     // AMD
-    define([], factory);
-  } else if (typeof exports === 'object') {
-    // Node.js
-    module.exports = factory();
+    define('MemSnap', [], factory);
   } else {
     // Browser
     window.memSnap = factory();
