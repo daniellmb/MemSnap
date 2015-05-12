@@ -10,6 +10,7 @@
     ".npmignore",
     ".travis.yml",
     ".umd",
+    "test",
     "gulpfile.js",
     "npm-shrinkwrap.json",
     "package.json"
