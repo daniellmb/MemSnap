@@ -5,11 +5,12 @@
 
 /**
  * Logs browser memory statistic snapshots over time.
- * @param {Window} global - the global context (aka the Window object).
- * @param {string} url - the url including parameters for where to send the memory snapshots.
- * @param {Object.<string, number>} intervals - a key value pair list of when to send the memory snapshots.
+ * @param {!Window} global - the global context (aka the Window object).
+ * @param {!string} url - the url including parameters for where to send the memory snapshots.
+ * @param {Object.<string, number>} intervals - an optional key value pair list of when to send the memory snapshots.
+ * @param {Function} notify - an optional callback when a memory snapshot is taken.
  */
-function memSnap (global, url, intervals) {
+function memSnap (global, url, intervals, notify) {
   var perf = global.performance;
 
   // check already called and browser support
@@ -44,6 +45,9 @@ function memSnap (global, url, intervals) {
      */
     sendAt = function (label, delay) {
       global.setTimeout(function () {
+        if (notify) {
+          notify(label, perf.memory);
+        }
         global.document.createElement('img').src =
           url.replace(lblRegx, global.encodeURIComponent(label))
              .replace(lmtRegx, perf.memory.jsHeapSizeLimit)

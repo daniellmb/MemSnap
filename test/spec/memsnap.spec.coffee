@@ -90,6 +90,16 @@ describe 'memSnap.coffee', ->
         win.document = createElement: jasmine.createSpy('createElement').and.returnValue(img)
         win.encodeURIComponent = jasmine.createSpy('encodeURIComponent').and.returnValue('encodeURIComponent')
 
+      it 'should call an optional callback', ->
+        # arrange
+        notify = jasmine.createSpy('notify')
+        memSnap win, url, { 'foo': 1 }, notify
+        sendAt = win.setTimeout.calls.argsFor(0)[0]
+        # act
+        sendAt()
+        # assert
+        expect(notify).toHaveBeenCalledWith 'foo', win.performance.memory
+
       it 'should create an image with the data', ->
         # arrange
         memSnap win, url,

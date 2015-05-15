@@ -39,6 +39,21 @@ memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage=
   '15m': 9e5,
   '30m': 18e5
 });
+
+// - OR -
+
+// you can optionally configure a callback to get notified when a memory snapshot is taken
+memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}',  {
+  '0s': 0,
+  '1m': 6e4,
+  '3m': 18e4,
+  '5m': 3e5,
+  '10m': 6e5,
+  '15m': 9e5,
+  '30m': 18e5
+}, function(time, memory) {
+  console.log('Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize/1048576).toFixed(10) + ' MB');
+});
 ```
 
 ### CoffeeScript
@@ -58,6 +73,20 @@ memSnap @, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={us
   '10m': 6e5
   '15m': 9e5
   '30m': 18e5
+  
+# - OR -
+  
+# you can optionally configure a callback to get notified when a memory snapshot is taken
+memSnap this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}', {
+  '0s': 0
+  '1m': 6e4
+  '3m': 18e4
+  '5m': 3e5
+  '10m': 6e5
+  '15m': 9e5
+  '30m': 18e5
+}, (time, memory) ->
+  console.log 'Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize / 1048576).toFixed(10) + ' MB'
 ```
 
 By default the examples above would log memory use snapshots at the following relative time intervals:

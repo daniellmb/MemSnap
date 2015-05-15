@@ -8,8 +8,9 @@
   @param {Window} global - the global context (aka the Window object).
   @param {string} url - the url including parameters for where to send the memory snapshots.
   @param {Object.<string, number>} intervals - a key value pair list of when to send the memory snapshots.
+  @param {Function} notify - an optional callback when a memory snapshot is taken.
 ###
-memSnap = (global, url, intervals) ->
+memSnap = (global, url, intervals, notify) ->
   perf = global.performance
 
   # check browser support
@@ -43,6 +44,8 @@ memSnap = (global, url, intervals) ->
     ###
     sendAt = (label, delay) ->
       global.setTimeout (->
+        if notify
+          notify label, perf.memory
         global.document.createElement('img').src =
           url.replace(lblRegx, global.encodeURIComponent label)
              .replace(lmtRegx, perf.memory.jsHeapSizeLimit)

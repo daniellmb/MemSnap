@@ -106,6 +106,19 @@ describe('memSnap.js', function () {
         win.encodeURIComponent = jasmine.createSpy('encodeURIComponent').and.returnValue('encodeURIComponent');
       });
 
+      it('should call an optional callback', function () {
+        // arrange
+        var notify = jasmine.createSpy('notify');
+        memSnap(win, url, {
+          'foo': 1
+        }, notify);
+        var sendAt = win.setTimeout.calls.argsFor(0)[0];
+        // act
+        sendAt();
+        // assert
+        expect(notify).toHaveBeenCalledWith('foo', win.performance.memory);
+      });
+
       it('should create an image with the data', function () {
         // arrange
         memSnap(win, url, {
