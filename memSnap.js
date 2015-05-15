@@ -15,8 +15,7 @@ function memSnap (global, url, intervals, notify) {
 
   // check already called and browser support
   if (perf && perf.memory) {
-    var memory = perf.memory,
-        lblRegx = /\{lbl\}/,
+    var lblRegx = /\{lbl\}/,
         lmtRegx = /\{lmt\}/,
         totRegx = /\{tot\}/,
         useRegx = /\{use\}/,

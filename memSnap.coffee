@@ -15,8 +15,6 @@ memSnap = (global, url, intervals, notify) ->
 
   # check browser support
   if perf and perf.memory
-    # shorten the dot lookup
-    memory = perf.memory
     lblRegx = /\{lbl\}/
     lmtRegx = /\{lmt\}/
     totRegx = /\{tot\}/
