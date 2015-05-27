@@ -52,7 +52,7 @@ memSnap(this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage=
   '15m': 9e5,
   '30m': 18e5
 }, function(time, memory) {
-  console.log('Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize/1048576).toFixed(10) + ' MB');
+  console.log('Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize / 1e6).toFixed(2) + ' MB');
 });
 ```
 
@@ -86,7 +86,7 @@ memSnap this, 'http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage=
   '15m': 9e5
   '30m': 18e5
 }, (time, memory) ->
-  console.log 'Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize / 1048576).toFixed(10) + ' MB'
+  console.log 'Memory snapshot at ' + time + ' was ' + (memory.usedJSHeapSize / 1e6).toFixed(2) + ' MB'
 ```
 
 By default the examples above would log memory use snapshots at the following relative time intervals:
@@ -103,16 +103,16 @@ By default the examples above would log memory use snapshots at the following re
   - at 24 hours
   - at 48 hours
 
-These snapshots would be sent in to the url using the parameter format you provide, such as:
+These snapshots would be sent to the url using the parameter format you provide, such as:
 
 `http://example.com/log/?when={lbl}&limit={lmt}&total={tot}&usage={use}`
 
 The simple placeholders in the url template above will be replaced with the following values:
 
   - `{lbl}` is a friendly label for when the snapshot was taken (relative to when memSnap was called).
-  - `{lmt}` is the current value of `window.performance.memory.jsHeapSizeLimit` in kilobytes.
-  - `{tot}` is the current value of `window.performance.memory.totalJSHeapSize` in kilobytes.
-  - `{use}` is the current value of `window.performance.memory.usedJSHeapSize` in kilobytes.
+  - `{lmt}` is the current value of `window.performance.memory.jsHeapSizeLimit` in bytes.
+  - `{tot}` is the current value of `window.performance.memory.totalJSHeapSize` in bytes.
+  - `{use}` is the current value of `window.performance.memory.usedJSHeapSize` in bytes.
 
 NOTE: that the `memSnap` method only needs to be *called once* to schedule sending the memory statistics.
 
